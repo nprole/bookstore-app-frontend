@@ -1,0 +1,83 @@
+<!--
+&lt;!&ndash;
+<app-loading-overlay *ngIf="loading"></app-loading-overlay>
+&ndash;&gt;
+<div class="content-wrapper">
+    <mat-card class="content" [ngClass]="{'mat-app-background': isDarkTheme}">
+        <div class="logo-center-wrapper">
+            <div class="logo-img"></div>
+        </div>
+        <h2 mat-card-title>Register</h2>
+        <h3 mat-card-title>Register a new account</h3>
+        <form class="text-center" [formGroup]="registerForm" (ngSubmit)="submit()">
+            <mat-form-field class="full-width d-flex justify-content-center align-items-center"
+                            [ngClass]="{'mat-app-background': isDarkTheme}">
+                <mat-label>Email</mat-label>
+                <input
+                        type="email"
+                        formControlName="email"
+                        placeholder="Type in your email"
+                        matInput
+                />
+                <div *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)">
+                    <mat-error class="error-message" *ngIf="registerForm.get('email')?.hasError('required')">Email
+                        should not be empty
+                    </mat-error>
+                    <mat-error class="error-message" *ngIf="registerForm.get('email')?.hasError('email')">Invalid
+                        email
+                    </mat-error>
+                </div>
+            </mat-form-field>
+
+            <mat-form-field class="form-field">
+                <mat-label>Username</mat-label>
+                <input
+                        type="text"
+                        formControlName="username"
+                        placeholder="Type in your username"
+                        matInput
+                />
+                <div *ngIf="registerForm.get('username')?.invalid && (registerForm.get('username')?.dirty || registerForm.get('username')?.touched)">
+                    <mat-error class="error-message" *ngIf="registerForm.get('username')?.hasError('required')">Username
+                        should not be empty
+                    </mat-error>
+                    <mat-error class="error-message" *ngIf="registerForm.get('username')?.hasError('pattern')">Invalid
+                        username
+                    </mat-error>
+                </div>
+            </mat-form-field>
+            <mat-form-field [ngClass]="{'mat-app-background': isDarkTheme}"
+                            class="form-field">
+                <mat-label>Password</mat-label>
+                <input
+                        type="password"
+                        formControlName="password"
+                        placeholder="Type in your password"
+                        matInput
+                />
+                <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
+                    <mat-error class="error-message" *ngIf="registerForm.get('password')?.hasError('required')">Password
+                        should not be empty
+                    </mat-error>
+                    <mat-error class="error-message" *ngIf="registerForm.get('password')?.hasError('minlength')">
+                        Password must be longer than or equal to 6 characters
+                    </mat-error>
+                    <mat-error class="error-message" *ngIf="registerForm.get('password')?.hasError('maxlength')">
+                        Password must be shorter than or equal to 60 characters
+                    </mat-error>
+                </div>
+            </mat-form-field>
+
+            <div class="form-bottom-wrapper">
+                <button [disabled]="registerForm.invalid" class="main-button" mat-button mat-raised-button
+                        color="primary">Register
+                </button>
+            </div>
+        </form>
+    </mat-card>
+    or
+
+    <div class="bottom-info">
+        Already have an account? <a routerLink="/login">Login</a>
+    </div>
+</div>-->

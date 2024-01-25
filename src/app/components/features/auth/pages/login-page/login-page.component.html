@@ -1,0 +1,51 @@
+<!--
+<app-loading-overlay *ngIf="loading"></app-loading-overlay>
+-->
+<div class="content-wrapper">
+<!--    <mat-card class="content" [ngClass]="{'mat-app-background': darkTheme}">
+        <div class="logo-center-wrapper">
+            <div class="logo-img"></div>
+        </div>
+        <h2 mat-card-title>Login</h2>
+        <h2 mat-card-title>Sign into your account</h2>
+        <br>
+        <form [formGroup]="loginForm" (ngSubmit)="submit()" [ngClass]="{'mat-app-background': darkTheme}">
+            <mat-form-field class="form-field" [ngClass]="{'mat-app-background': darkTheme}">
+                <mat-label>Username</mat-label>
+                <input
+                        type="text"
+                        formControlName="username"
+                        placeholder="Type in your username"
+                        matInput
+                />
+                <mat-error class="error-message" *ngIf="loginForm.get('username')?.hasError('required')">Username should
+                    not be empty
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-field" [ngClass]="{'mat-app-background': darkTheme}">
+                <mat-label>Password</mat-label>
+                <input
+                        type="password"
+                        formControlName="password"
+                        placeholder="Type in your password"
+                        matInput
+                />
+                <mat-error class="error-message" *ngIf="loginForm.get('password')?.hasError('required')">Password should
+                    not be empty
+                </mat-error>
+            </mat-form-field>
+            <div class="bottom-info d-flex justify-content-end">
+                <a routerLink="/recover">Forgot Password?</a>
+            </div>
+            <mat-card-actions [ngClass]="{'mat-app-background': darkTheme}"
+                    class="d-flex justify-content-center align-items-center">
+                <button [disabled]="loginForm.invalid" class="main-button" mat-button mat-raised-button color="primary">
+                    Log in
+                </button>
+            </mat-card-actions>
+        </form>
+    </mat-card>-->
+    <div class="bottom-info">
+        New? <a routerLink="/register">Sign up and start playing NumberRumble</a>
+    </div>
+</div>

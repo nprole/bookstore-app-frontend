@@ -1,0 +1,16 @@
+<mat-dialog-content class="mat-typography" [ngClass]="{'mat-app-background': darkTheme }">
+
+    <div mat-dialog-title [ngClass]="{'mat-app-background': darkTheme }">
+        <div class="logo-center-wrapper">
+            <div class="logo-img"></div>
+        </div>
+        Confirm dialog
+    </div>
+    <div mat-dialog-content [ngClass]="{'mat-app-background': darkTheme }">
+        {{ description }}
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions [ngClass]="{'mat-app-background': darkTheme }">
+    <button mat-button (click)="close()">Close</button>
+    <button mat-button (click)="accept()">Accept</button>
+</mat-dialog-actions>

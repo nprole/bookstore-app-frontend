@@ -2,11 +2,13 @@ import { Route } from '@angular/router';
 import {AuthGuard} from "./components/features/auth/guard/auth.guard";
 import {RegisterPageComponent} from "./components/features/auth/pages/register-page/register-page.component";
 import {LoginPageComponent} from "./components/features/auth/pages/login-page/login-page.component";
-import {BuildLogComponent} from "./components/build-log/build-log.component";
+import {BuildLogComponent} from "./components/pages/build-log/build-log.component";
+import {HomeComponent} from "./components/pages/home/home.component";
 
 export const appRoutes: Route[] = [
-    {path: '', redirectTo: '/test', pathMatch: 'full'},
+    {path: '', redirectTo: '/home', pathMatch: 'full'},
     {path: 'build-log', component: BuildLogComponent},
+    {path: 'home', component: HomeComponent},
     {
         path: 'login',
         component: LoginPageComponent,

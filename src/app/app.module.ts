@@ -1,13 +1,13 @@
 import {APP_INITIALIZER, NgModule} from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
-import { appRoutes } from './app.routes';
-import { InfoPageComponent } from './components/info-page/info-page.component';
-import { AdminPanelComponent } from './components/features/admin-panel/admin-panel.component';
-import { ShopComponent } from './components/features/shop/shop.component';
-import { BuildLogComponent } from './components/build-log/build-log.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserModule} from '@angular/platform-browser';
+import {RouterModule} from '@angular/router';
+import {AppComponent} from './app.component';
+import {appRoutes} from './app.routes';
+import {InfoPageComponent} from './components/pages/info-page/info-page.component';
+import {AdminPanelComponent} from './components/features/admin-panel/admin-panel.component';
+import {ShopComponent} from './components/features/shop/shop.component';
+import {BuildLogComponent} from './components/pages/build-log/build-log.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ErrorDialogInterceptor} from "../core/interceptor/error-dialog.interceptor";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthTokenInterceptor} from "./components/features/auth/interceptor/auth-token.interceptor";
@@ -28,65 +28,73 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatCardModule} from "@angular/material/card";
 import {CoreModule} from "../core/core.module";
 import {MatButtonModule} from "@angular/material/button";
+import {FooterComponent} from "./components/pages/footer/footer.component";
+import {HomeComponent} from "./components/pages/home/home.component";
 
-function initialize() {
-
-}
+const initialize = (authService: AuthService) => async () => {
+    if (authService.getAccessToken()) {
+        try {
+            await authService.getProfile();
+        } catch {
+        }
+    }
+};
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    InfoPageComponent,
-    AdminPanelComponent,
-    ShopComponent,
-    BuildLogComponent,
-  ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
-    BrowserAnimationsModule,
-    CommonModule,
-    MatProgressBarModule,
-    MatSliderModule,
-    MatFormFieldModule,
-    MatProgressSpinnerModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatCardModule,
-    MatInputModule,
-    MatSlideToggleModule,
-    MatButtonToggleModule,
-    CoreModule,
-    MatMenuModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-    FormsModule,
-    BrowserModule,
-    RouterModule.forRoot(appRoutes, {initialNavigation: 'enabledBlocking'}),
-    BrowserAnimationsModule,
-    HttpClientModule,
-  ],
-  providers: [
-    {provide: APP_BASE_HREF, useValue: '/'},
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initialize,
-      deps: [AuthService],
-      multi: true,
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthTokenInterceptor,
-      multi: true,
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ErrorDialogInterceptor,
-      multi: true,
-    }
-  ],
-  bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        InfoPageComponent,
+        AdminPanelComponent,
+        ShopComponent,
+        BuildLogComponent,
+        FooterComponent,
+        HomeComponent
+    ],
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot(appRoutes, {initialNavigation: 'enabledBlocking'}),
+        BrowserAnimationsModule,
+        CommonModule,
+        MatProgressBarModule,
+        MatSliderModule,
+        MatFormFieldModule,
+        MatProgressSpinnerModule,
+        MatButtonModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatSidenavModule,
+        MatCardModule,
+        MatInputModule,
+        MatSlideToggleModule,
+        MatButtonToggleModule,
+        CoreModule,
+        MatMenuModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+        FormsModule,
+        BrowserModule,
+        HttpClientModule
+    ],
+    providers: [
+        {provide: APP_BASE_HREF, useValue: '/'},
+        {
+            provide: APP_INITIALIZER,
+            useFactory: initialize,
+            deps: [AuthService],
+            multi: true,
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthTokenInterceptor,
+            multi: true,
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: ErrorDialogInterceptor,
+            multi: true,
+        }
+    ],
+    bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}

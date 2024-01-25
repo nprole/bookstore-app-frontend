@@ -3,37 +3,19 @@
         <div class="logo-center-wrapper">
             <div class="logo-img"></div>
         </div>
-        <h2 mat-card-title>Number Rumble</h2>
+        <h2 mat-card-title>Book Verse</h2>
         <p>
-            Introducing an exciting multiplayer game! Compete with friends worldwide to solve equations
-            quickly. Sharpen your math skills and have fun. </p>
+
+            Welcome to BookVerse - Where Stories Come to Life!
+
+            Explore our curated collection of books spanning genres, languages, and cultures. From bestsellers to hidden gems, find your next literary adventure with ease. Happy reading!
+        </p>
         <div class="options-wrapper d-flex justify-content-around align-items-center flex-column">
             <div *ngIf="!loggedIn">
-                To keep your progress and compete with friends, register!
                 <button class="w-100 pvp" mat-raised-button color="primary" routerLink="/register">
-                    Register and play
+                    Register
                 </button>
-            </div>
-            <div *ngIf="!loggedIn">
-                or
-                <button class="w-100" mat-raised-button color="primary" routerLink="/play-as-guest">
-                    <img class="icon" width="16" height="16" [src]="'../../../assets/icons/sword.svg'" alt="Your Icon">
-                    Play as Guest
-                </button>
-            <div>
-                <button class="w-100" mat-raised-button color="primary" *ngIf="loggedIn" routerLink="/games">
-                    <img class="icon pvp" width="18" height="18" [src]="'../../../assets/icons/gamepad.png'"
-                         alt="Your Icon">
-                    Play
-                </button>
-            </div>
             </div>
         </div>
-
-
-        <!--    <div class="d-flex flex-column justify-content-center align-items-center align-content-center">
-                <app-equation-selector [numberPicks]="numberPicks" (confirmResult)="null">
-                </app-equation-selector>
-            </div>-->
     </mat-card>
 </div>

@@ -1,7 +1,5 @@
 <!--
-&lt;!&ndash;
 <app-loading-overlay *ngIf="loading"></app-loading-overlay>
-&ndash;&gt;
 <div class="content-wrapper">
     <mat-card class="content" [ngClass]="{'mat-app-background': isDarkTheme}">
         <div class="logo-center-wrapper">
@@ -38,12 +36,13 @@
                         matInput
                 />
                 <div *ngIf="registerForm.get('username')?.invalid && (registerForm.get('username')?.dirty || registerForm.get('username')?.touched)">
-                    <mat-error class="error-message" *ngIf="registerForm.get('username')?.hasError('required')">Username
+&lt;!&ndash;                    <mat-error class="error-message" *ngIf="registerForm.get('username')?.hasError('required')">Username
                         should not be empty
                     </mat-error>
+
                     <mat-error class="error-message" *ngIf="registerForm.get('username')?.hasError('pattern')">Invalid
                         username
-                    </mat-error>
+                    </mat-error>&ndash;&gt;
                 </div>
             </mat-form-field>
             <mat-form-field [ngClass]="{'mat-app-background': isDarkTheme}"
@@ -56,7 +55,7 @@
                         matInput
                 />
                 <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
-                    <mat-error class="error-message" *ngIf="registerForm.get('password')?.hasError('required')">Password
+    &lt;!&ndash;                <mat-error class="error-message" *ngIf="registerForm.get('password')?.hasError('required')">Password
                         should not be empty
                     </mat-error>
                     <mat-error class="error-message" *ngIf="registerForm.get('password')?.hasError('minlength')">
@@ -64,7 +63,7 @@
                     </mat-error>
                     <mat-error class="error-message" *ngIf="registerForm.get('password')?.hasError('maxlength')">
                         Password must be shorter than or equal to 60 characters
-                    </mat-error>
+                    </mat-error>&ndash;&gt;
                 </div>
             </mat-form-field>
 
@@ -80,4 +79,5 @@
     <div class="bottom-info">
         Already have an account? <a routerLink="/login">Login</a>
     </div>
-</div>-->
+</div>
+-->

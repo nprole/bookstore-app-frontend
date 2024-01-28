@@ -41,6 +41,9 @@ import {DataViewModule} from "primeng/dataview";
 import {DropdownModule} from "primeng/dropdown";
 import {RatingModule} from "primeng/rating";
 import {ProductService} from "./layout/service/product.service";
+import {AppConfigComponent} from "./layout/config/app.config.component";
+import {MenuService} from "./layout/service/app.menu.service";
+import {AppConfigModule} from "./layout/config/config.module";
 
 const initialize = (authService: AuthService) => async () => {
     if (authService.getAccessToken()) {
@@ -65,7 +68,10 @@ const initialize = (authService: AuthService) => async () => {
         SidebarComponent
     ],
     imports: [
+        AppConfigModule,
         BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
         RouterModule.forRoot(appRoutes, {initialNavigation: 'enabledBlocking'}),
         BrowserAnimationsModule,
         CommonModule,
@@ -98,6 +104,7 @@ const initialize = (authService: AuthService) => async () => {
     ],
     providers: [
         ProductService,
+        MenuService,
         {provide: APP_BASE_HREF, useValue: '/'},
         {
             provide: APP_INITIALIZER,

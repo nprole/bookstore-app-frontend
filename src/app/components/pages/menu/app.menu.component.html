@@ -4,10 +4,65 @@
         <li  class="menu-separator"></li>
         <li routerLink="/shop"> Backoffice </li>
         <li  class="menu-separator"></li>
+        <div class="sidenav-content">
+            <div class="logo-wrapper d-flex align-items-center justify-content-center flex-column" href="#"
+                 routerLink="/lobby">
+                <div class="logo-img">
+                </div>
+                BookVerse
+            </div>
+            <div class="sidebar-item">
+                <button mat-button color="primary" class="sidebar-item"
+                        routerLink="/home">
+                    <div>Home</div>
+                </button>
+            </div>
+            <div class="sidebar-item" *ngIf="loggedIn">
+                <div class="text-center">
+                    Test
+                </div>
+            </div>
+            <div class="sidebar-item" *ngIf="loggedIn">
+                <button mat-button color="primary"
+                        (click)="logout()">
+                    <div>Log out</div>
+                </button>
+            </div>
+            <div class="sidebar-item" *ngIf="!loggedIn">
+                <button mat-raised-button color="primary"
+                        (click)="navigate('/login')">
+                    <div>Login</div>
+                </button>
+            </div>
+            <div class="sidebar-item" *ngIf="!loggedIn">
+                <!-- (click)="sidenav.toggle()"-->
+                <button mat-raised-button color="accent"
+                        (click)="navigate('/register')">
+                    <div>Register</div>
+                </button>
+            </div>
+            <div class="sidebar-item" *ngIf="loggedIn">
+                <button mat-button color="primary"
+                        (click)="navigate('/settings')">
+                    <div>Settings</div>
+                </button>
+            </div>
+            <div class="sidebar-item">
+                <button mat-button color="accent" (click)="navigate('/build-log')">
+                    <div>Build log</div>
+                </button>
+            </div>
 
-        <!--        <li app-menuitem *ngIf="!item['separator']" [item]="item" [index]="i" [root]="true"></li>
-        &lt;!&ndash;
-                <li *ngIf="item['separator']" class="menu-separator"></li>
-        &ndash;&gt;-->
+            <div class="sidebar-item">
+                <button mat-button color="accent" (click)="navigate('/about')">
+                    <div>About</div>
+                </button>
+            </div>
+            <div class="sidebar-item">
+                <button mat-button color="accent" (click)="navigate('/test')">
+                    <div>Test</div>
+                </button>
+            </div>
+        </div>
     </div>
 </ul>

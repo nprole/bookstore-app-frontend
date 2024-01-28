@@ -1,13 +1,11 @@
-<!--
-<app-loading-overlay *ngIf="loading"></app-loading-overlay>
 <div class="content-wrapper">
-    <p-card class="content" [ngClass]="{'mat-app-background': isDarkTheme}">
+    <div class="content" >
         <div class="logo-center-wrapper">
             <div class="logo-img"></div>
         </div>
         <h2 class="mat-card-title">Register</h2>
         <h3 class="mat-card-title">Register a new account</h3>
-        <form class="text-center" [formGroup]="registerForm" (ngSubmit)="submit()">
+<!--        <form class="text-center" [form]="registerForm" (ngSubmit)="submit()">
             <div class="p-field">
                 <label for="email">Email</label>
                 <input
@@ -52,13 +50,11 @@
 
             <div class="form-bottom-wrapper">
                 <button [disabled]="registerForm.invalid" type="submit" class="main-button p-button p-component p-button-raised p-button-primary">Register</button>
-            </div>
-        </form>
-    </p-card>
+            </div>-->
+<!--        </form>-->
+    </div>
     or
-
     <div class="bottom-info">
         Already have an account? <a routerLink="/login">Login</a>
     </div>
 </div>
--->

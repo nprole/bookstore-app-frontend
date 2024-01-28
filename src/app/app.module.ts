@@ -30,6 +30,17 @@ import {CoreModule} from "../core/core.module";
 import {MatButtonModule} from "@angular/material/button";
 import {FooterComponent} from "./components/pages/footer/footer.component";
 import {HomeComponent} from "./components/pages/home/home.component";
+import {ToolbarModule} from "primeng/toolbar";
+import {SplitButtonModule} from "primeng/splitbutton";
+import {TopbarComponent} from "./components/pages/topbar/topbar.component";
+import {AppMenuComponent} from "./components/pages/menu/app.menu.component";
+import {SidebarComponent} from "./components/pages/sidebar/sidebar.component";
+import {OrderListModule} from "primeng/orderlist";
+import {PickListModule} from "primeng/picklist";
+import {DataViewModule} from "primeng/dataview";
+import {DropdownModule} from "primeng/dropdown";
+import {RatingModule} from "primeng/rating";
+import {ProductService} from "./layout/service/product.service";
 
 const initialize = (authService: AuthService) => async () => {
     if (authService.getAccessToken()) {
@@ -48,7 +59,10 @@ const initialize = (authService: AuthService) => async () => {
         ShopComponent,
         BuildLogComponent,
         FooterComponent,
-        HomeComponent
+        TopbarComponent,
+        HomeComponent,
+        AppMenuComponent,
+        SidebarComponent
     ],
     imports: [
         BrowserModule,
@@ -73,9 +87,17 @@ const initialize = (authService: AuthService) => async () => {
         ReactiveFormsModule,
         FormsModule,
         BrowserModule,
-        HttpClientModule
+        HttpClientModule,
+        ToolbarModule,
+        SplitButtonModule,
+        OrderListModule,
+        PickListModule,
+        DataViewModule,
+        DropdownModule,
+        RatingModule
     ],
     providers: [
+        ProductService,
         {provide: APP_BASE_HREF, useValue: '/'},
         {
             provide: APP_INITIALIZER,

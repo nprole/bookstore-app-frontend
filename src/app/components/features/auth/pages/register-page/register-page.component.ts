@@ -29,14 +29,14 @@ export class RegisterPageComponent implements OnDestroy {
 
         this.subs = [];
 
-/*        const s = this.themeService.isDarkThemeSubject.subscribe(
+        const s = this.themeService.isDarkThemeSubject.subscribe(
             {
                 next: (isDarkTheme) => {
                     this.isDarkTheme = isDarkTheme;
                 }
             }
         )
-        this.subs.push(s);*/
+        this.subs.push(s);
     }
 
     ngOnDestroy() {

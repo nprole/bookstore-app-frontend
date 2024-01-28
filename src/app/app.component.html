@@ -1,106 +1,35 @@
-
-<mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav class="mat-sidenav" mode="over" position="end" [ngClass]="{'mat-app-background': isDark}">
-        <div class="sidenav-content">
-            <div class="logo-wrapper d-flex align-items-center justify-content-center flex-column" href="#"
-                 routerLink="/lobby">
-                <div class="logo-img">
-                </div>
-                BookBreeze
-            </div>
-            <div class="sidebar-item" *ngIf="loggedIn">
-                <button mat-raised-button color="primary"
-                        (click)="navigate('/games')">
-                    <div> Play</div>
-                </button>
-            </div>
-            <div class="sidebar-item">
-                <button mat-button color="primary" class="sidebar-item"
-                        routerLink="/home">
-                    <div>Home</div>
-                </button>
-            </div>
-            <div class="sidebar-item" *ngIf="loggedIn">
-                <div class="text-center">
-                    {{user?.username}}
-                </div>
-                <div class="user-image-wrapper"
-                     *ngIf="user?.photoUrl">
-                    <div class="user-image"
-                         [style]="{ 'background-image': 'url(' + user?.photoUrl + ')' }">
-                    </div>
-                </div>
-            </div>
-            <div class="sidebar-item" *ngIf="loggedIn">
-                <button mat-button color="primary"
-                        (click)="logout()">
-                    <div>Log out</div>
-                </button>
-            </div>
-            <div class="sidebar-item" *ngIf="!loggedIn">
-                <button mat-raised-button color="primary"
-                        (click)="navigate('/login')">
-                    <div>Login</div>
-                </button>
-            </div>
-            <div class="sidebar-item" *ngIf="!loggedIn">
-                <!-- (click)="sidenav.toggle()"-->
-                <button mat-raised-button color="accent"
-                        (click)="navigate('/register')">
-                    <div>Register</div>
-                </button>
-            </div>
-            <div class="sidebar-item" *ngIf="loggedIn">
-                <button mat-button color="primary"
-                        (click)="navigate('/settings')">
-                    <div>Settings</div>
-                </button>
-            </div>
-            <div class="sidebar-item">
-                <button mat-button color="accent" (click)="navigate('/build-log')">
-                    <div>Build log</div>
-                </button>
-            </div>
-
-            <div class="sidebar-item">
-                <button mat-button color="accent" (click)="navigate('/about')">
-                    <div>About</div>
-                </button>
-            </div>
-            <div class="sidebar-item">
-                <button mat-button color="accent" (click)="navigate('/test')">
-                    <div>Test</div>
-                </button>
-            </div>
-            <div class="siderbar-item">
-                <section class="example-section">
-                    <mat-slide-toggle
-                            class="example-margin"
-                            color='primary'
-                            [checked]="isDark"
-                            (toggleChange)="toggleTheme()">
-                        <button mat-button color="accent" class="theme-btn-selector">
-                            <span *ngIf="isDark">Dark </span>
-                            <span *ngIf="!isDark">Light</span>
-                        </button>
-                    </mat-slide-toggle>
-                </section>
-            </div>
+<!--<p-toolbar>
+    <div class="p-toolbar-group-start">
+        <button pButton icon="pi pi-plus" class="mr-2"></button>
+        <button pButton icon="pi pi-print" class="mr-2"></button>
+        <button pButton icon="pi pi-upload"></button>
+    </div>
+    <div class="p-toolbar-group-center">
+        <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input pInputText placeholder="Search" />
+        </span>
+    </div>
+    <div class="p-toolbar-group-end">
+&lt;!&ndash;
+        <p-splitButton label="Save" icon="pi pi-check" [model]="items"></p-splitButton>
+&ndash;&gt;
+    </div>
+</p-toolbar>-->
+<!--app-topbar-->
+<div class="layout-wrapper" >
+    <app-topbar></app-topbar>
+    <div class="layout-sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="layout-main-container">
+        <div class="layout-main">
+            <router-outlet></router-outlet>
         </div>
-    </mat-sidenav>
-    <mat-sidenav-content [ngClass]="{'mat-app-background': isDark}">
-        <mat-toolbar color="primary" class="justify-content-start d-flex justify-content-around">
-            <div class="logo-wrapper d-flex align-items-center justify-content-center" href="#">
-                <div class="logo-img">
-                </div>
-                BookBreeze
-            </div>
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
-                    (click)="sidenav.toggle()">
-                <mat-icon>menu</mat-icon>
-            </button>
-        </mat-toolbar>
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
-</mat-sidenav-container>
-<app-footer></app-footer>
+        <app-footer></app-footer>
+    </div>
+<!--
+    <app-config></app-config>
+-->
+    <div class="layout-mask"></div>
+</div>

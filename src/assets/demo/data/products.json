@@ -1,0 +1,43 @@
+{
+	"data": [
+		{
+			"id": "2000",
+			"code": "bksf230fh0g3",
+			"title": "To Kill a Mockingbird",
+			"author": "Harper Lee",
+			"description": "A gripping portrayal of racial injustice and moral growth in a small Southern town.",
+			"coverImage": "to-kill-a-mockingbird.jpg",
+			"price": 12.99,
+			"category": "Fiction",
+			"quantity": 10,
+			"inventoryStatus": "INSTOCK",
+			"rating": 5
+		},
+		{
+			"id": "2001",
+			"code": "bksnvklal433",
+			"title": "1984",
+			"author": "George Orwell",
+			"description": "A dystopian novel set in a totalitarian regime, exploring themes of surveillance and control.",
+			"coverImage": "1984.jpg",
+			"price": 10.99,
+			"category": "Fiction",
+			"quantity": 25,
+			"inventoryStatus": "INSTOCK",
+			"rating": 4
+		},
+		{
+			"id": "2002",
+			"code": "bkszz21cz3c1",
+			"title": "The Hitchhiker's Guide to the Galaxy",
+			"author": "Douglas Adams",
+			"description": "A hilarious and inventive science fiction series about the misadventures of Arthur Dent, an unwitting Earthling.",
+			"coverImage": "hitchhikers-guide.jpg",
+			"price": 8.99,
+			"category": "Science Fiction",
+			"quantity": 5,
+			"inventoryStatus": "LOWSTOCK",
+			"rating": 5
+		}
+	]
+}

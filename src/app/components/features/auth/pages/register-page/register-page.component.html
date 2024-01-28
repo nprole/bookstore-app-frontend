@@ -1,79 +1,60 @@
 <!--
 <app-loading-overlay *ngIf="loading"></app-loading-overlay>
 <div class="content-wrapper">
-    <mat-card class="content" [ngClass]="{'mat-app-background': isDarkTheme}">
+    <p-card class="content" [ngClass]="{'mat-app-background': isDarkTheme}">
         <div class="logo-center-wrapper">
             <div class="logo-img"></div>
         </div>
-        <h2 mat-card-title>Register</h2>
-        <h3 mat-card-title>Register a new account</h3>
+        <h2 class="mat-card-title">Register</h2>
+        <h3 class="mat-card-title">Register a new account</h3>
         <form class="text-center" [formGroup]="registerForm" (ngSubmit)="submit()">
-            <mat-form-field class="full-width d-flex justify-content-center align-items-center"
-                            [ngClass]="{'mat-app-background': isDarkTheme}">
-                <mat-label>Email</mat-label>
+            <div class="p-field">
+                <label for="email">Email</label>
                 <input
+                        id="email"
                         type="email"
                         formControlName="email"
                         placeholder="Type in your email"
-                        matInput
+                        pInputText
                 />
                 <div *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)">
-                    <mat-error class="error-message" *ngIf="registerForm.get('email')?.hasError('required')">Email
-                        should not be empty
-                    </mat-error>
-                    <mat-error class="error-message" *ngIf="registerForm.get('email')?.hasError('email')">Invalid
-                        email
-                    </mat-error>
+                    <small *ngIf="registerForm.get('email')?.hasError('required')" class="p-error">Email should not be empty</small>
+                    <small *ngIf="registerForm.get('email')?.hasError('email')" class="p-error">Invalid email</small>
                 </div>
-            </mat-form-field>
+            </div>
 
-            <mat-form-field class="form-field">
-                <mat-label>Username</mat-label>
+            <div class="p-field">
+                <label for="username">Username</label>
                 <input
+                        id="username"
                         type="text"
                         formControlName="username"
                         placeholder="Type in your username"
-                        matInput
+                        pInputText
                 />
-                <div *ngIf="registerForm.get('username')?.invalid && (registerForm.get('username')?.dirty || registerForm.get('username')?.touched)">
-&lt;!&ndash;                    <mat-error class="error-message" *ngIf="registerForm.get('username')?.hasError('required')">Username
-                        should not be empty
-                    </mat-error>
+            </div>
 
-                    <mat-error class="error-message" *ngIf="registerForm.get('username')?.hasError('pattern')">Invalid
-                        username
-                    </mat-error>&ndash;&gt;
-                </div>
-            </mat-form-field>
-            <mat-form-field [ngClass]="{'mat-app-background': isDarkTheme}"
-                            class="form-field">
-                <mat-label>Password</mat-label>
+            <div class="p-field">
+                <label for="password">Password</label>
                 <input
+                        id="password"
                         type="password"
                         formControlName="password"
                         placeholder="Type in your password"
-                        matInput
+                        pPassword
                 />
                 <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
-    &lt;!&ndash;                <mat-error class="error-message" *ngIf="registerForm.get('password')?.hasError('required')">Password
-                        should not be empty
-                    </mat-error>
-                    <mat-error class="error-message" *ngIf="registerForm.get('password')?.hasError('minlength')">
-                        Password must be longer than or equal to 6 characters
-                    </mat-error>
-                    <mat-error class="error-message" *ngIf="registerForm.get('password')?.hasError('maxlength')">
-                        Password must be shorter than or equal to 60 characters
-                    </mat-error>&ndash;&gt;
+                    <small *ngIf="registerForm.get('password')?.hasError('required')" class="p-error">Password should not be empty</small>
+                    <small *ngIf="registerForm.get('password')?.hasError('minlength')" class="p-error">Password must be longer than or equal to 6 characters</small>
+                    <small *ngIf="registerForm.get('password')?.hasError('maxlength')" class="p-error">Password must be shorter than or equal to 60 characters</small>
                 </div>
-            </mat-form-field>
+            </div>
 
             <div class="form-bottom-wrapper">
-                <button [disabled]="registerForm.invalid" class="main-button" mat-button mat-raised-button
-                        color="primary">Register
-                </button>
+                <button [disabled]="registerForm.invalid" type="submit" class="main-button p-button p-component p-button-raised p-button-primary">Register</button>
             </div>
         </form>
-    </mat-card>
+    </p-card>
     or
 
     <div class="bottom-info">

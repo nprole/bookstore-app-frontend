@@ -4,11 +4,13 @@ import {RegisterPageComponent} from "./components/features/auth/pages/register-p
 import {LoginPageComponent} from "./components/features/auth/pages/login-page/login-page.component";
 import {BuildLogComponent} from "./components/pages/build-log/build-log.component";
 import {HomeComponent} from "./components/pages/home/home.component";
+import {ShopComponent} from "./components/features/shop/shop.component";
 
 export const appRoutes: Route[] = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
     {path: 'build-log', component: BuildLogComponent},
     {path: 'home', component: HomeComponent},
+    {path: 'shop', component: ShopComponent},
     {
         path: 'login',
         component: LoginPageComponent,

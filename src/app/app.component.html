@@ -1,23 +1,4 @@
-<!--<p-toolbar>
-    <div class="p-toolbar-group-start">
-        <button pButton icon="pi pi-plus" class="mr-2"></button>
-        <button pButton icon="pi pi-print" class="mr-2"></button>
-        <button pButton icon="pi pi-upload"></button>
-    </div>
-    <div class="p-toolbar-group-center">
-        <span class="p-input-icon-left">
-            <i class="pi pi-search"></i>
-            <input pInputText placeholder="Search" />
-        </span>
-    </div>
-    <div class="p-toolbar-group-end">
-&lt;!&ndash;
-        <p-splitButton label="Save" icon="pi pi-check" [model]="items"></p-splitButton>
-&ndash;&gt;
-    </div>
-</p-toolbar>-->
-<!--app-topbar-->
-<div class="layout-wrapper" >
+<div class="layout-wrapper" [ngClass]="containerClass">
     <app-topbar></app-topbar>
     <div class="layout-sidebar">
         <app-sidebar></app-sidebar>
@@ -26,7 +7,9 @@
         <div class="layout-main">
             <router-outlet></router-outlet>
         </div>
+<!--
         <app-footer></app-footer>
+-->
     </div>
     <app-config></app-config>
     <div class="layout-mask"></div>

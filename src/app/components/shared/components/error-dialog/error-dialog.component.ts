@@ -1,7 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {Subscription} from "rxjs";
-import {ThemeService} from "../../../../../services/theme.service";
 
 export interface ErrorDialogData {
     title: string;
@@ -20,16 +19,9 @@ export class ErrorDialogComponent implements OnInit {
 
     constructor(
         @Inject(MAT_DIALOG_DATA) data: ErrorDialogData,
-        private themeService: ThemeService
     ) {
         this.subs = [];
         this.isDark = true;
-        const s = this.themeService.isDarkThemeSubject.subscribe({
-            next: (isDarkTheme) => {
-                this.isDark = isDarkTheme;
-            }
-        });
-        this.subs.push(s);
 
         this.title = data.title || 'Error';
         this.message =

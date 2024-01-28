@@ -27,14 +27,6 @@ export class LoginPageComponent implements OnDestroy {
             password: ['', [Validators.required]]
         });
 
-/*        const s = this.themeService.isDarkThemeSubject.subscribe(
-            {
-                next: (isDarkTheme) => {
-                    this.darkTheme = isDarkTheme;
-                }
-            }
-        )
-        this.subs.push(s);*/
     }
 
     ngOnDestroy(): void {

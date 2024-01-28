@@ -3,7 +3,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {take} from 'rxjs/operators';
 import {AuthService} from "../../service/auth.service";
 import {Subscription} from "rxjs";
-import {ThemeService} from "../../../../../../services/theme.service";
 
 @Component({
     templateUrl: './register-page.component.html',
@@ -18,7 +17,6 @@ export class RegisterPageComponent implements OnDestroy {
     constructor(
         private formBuilder: FormBuilder,
         private authService: AuthService,
-        private themeService: ThemeService,
     ) {
         this.isDarkTheme = true;
         this.registerForm = this.formBuilder.group({
@@ -29,14 +27,6 @@ export class RegisterPageComponent implements OnDestroy {
 
         this.subs = [];
 
-        const s = this.themeService.isDarkThemeSubject.subscribe(
-            {
-                next: (isDarkTheme) => {
-                    this.isDarkTheme = isDarkTheme;
-                }
-            }
-        )
-        this.subs.push(s);
     }
 
     ngOnDestroy() {

@@ -28,7 +28,6 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatCardModule} from "@angular/material/card";
 import {CoreModule} from "../core/core.module";
 import {MatButtonModule} from "@angular/material/button";
-import {FooterComponent} from "./components/pages/footer/footer.component";
 import {HomeComponent} from "./components/pages/home/home.component";
 import {ToolbarModule} from "primeng/toolbar";
 import {SplitButtonModule} from "primeng/splitbutton";
@@ -41,7 +40,6 @@ import {DataViewModule} from "primeng/dataview";
 import {DropdownModule} from "primeng/dropdown";
 import {RatingModule} from "primeng/rating";
 import {ProductService} from "./layout/service/product.service";
-import {AppConfigComponent} from "./layout/config/app.config.component";
 import {MenuService} from "./layout/service/app.menu.service";
 import {AppConfigModule} from "./layout/config/config.module";
 
@@ -61,11 +59,10 @@ const initialize = (authService: AuthService) => async () => {
         AdminPanelComponent,
         ShopComponent,
         BuildLogComponent,
-        FooterComponent,
         TopbarComponent,
         HomeComponent,
         AppMenuComponent,
-        SidebarComponent
+        SidebarComponent,
     ],
     imports: [
         AppConfigModule,

@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {AuthService} from "./components/features/auth/service/auth.service";
 import {Router} from "@angular/router";
 import {Subject, Subscription} from "rxjs";
-import {ThemeService} from "../services/theme.service";
+import {LayoutService} from "./layout/service/app.layout.service";
 
 @Component({
   selector: 'app-root',
@@ -19,12 +19,12 @@ export class AppComponent {
 
   constructor(
       private router: Router,
-      private themeService: ThemeService,
       private authService: AuthService,
+      private layoutService: LayoutService
   ) {
+    this.isDark = false;
     this.user = null;
     this.loggedIn = false;
-    this.isDark = true;
     let s = this.authService.user$.subscribe({
       next: (user: any) => {
         this.loggedIn = user?.id?.length > 0;
@@ -37,14 +37,6 @@ export class AppComponent {
     });
     this.subs.push(s);
 
-    s = this.themeService.isDarkThemeSubject.subscribe(
-        {
-          next: (isDark: boolean) => {
-            this.isDark = isDark;
-          }
-        }
-    );
-    this.subs.push(s);
   }
 
   ngOnInit() {
@@ -63,9 +55,17 @@ export class AppComponent {
   logout() {
     this.authService.logout();
   }
-
-  toggleTheme() {
-    this.isDark = !this.isDark;
-    this.themeService.toggleDarkTheme();
+  get containerClass() {
+    return {
+      'layout-theme-light': this.layoutService.config().colorScheme === 'light',
+      'layout-theme-dark': this.layoutService.config().colorScheme === 'dark',
+      'layout-overlay': this.layoutService.config().menuMode === 'overlay',
+      'layout-static': this.layoutService.config().menuMode === 'static',
+      'layout-static-inactive': this.layoutService.state.staticMenuDesktopInactive && this.layoutService.config().menuMode === 'static',
+      'layout-overlay-active': this.layoutService.state.overlayMenuActive,
+      'layout-mobile-active': this.layoutService.state.staticMenuMobileActive,
+      'p-input-filled': this.layoutService.config().inputStyle === 'filled',
+      'p-ripple-disabled': !this.layoutService.config().ripple
+    }
   }
 }

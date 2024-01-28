@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../features/auth/service/auth.service";
-import {ThemeService} from "../../../../services/theme.service";
 
 @Component({
     selector: 'app-home',
@@ -14,18 +13,10 @@ export class HomeComponent implements OnInit {
     loggedIn: boolean;
 
     constructor(
-        private themeService: ThemeService,
         private authService: AuthService
     ) {
         this.loggedIn = false;
         this.darkTheme = true;
-/*        this.themeService.isDarkThemeSubject.subscribe(
-            {
-                next: (isDarkTheme) => {
-                    this.darkTheme = isDarkTheme;
-                }
-            }
-        )*/
         this.authService.user$.subscribe({
             next: (user: any) => {
                 this.loggedIn = user?.id?.length > 0;

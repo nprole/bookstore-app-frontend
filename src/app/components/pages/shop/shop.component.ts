@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {SelectItem} from "primeng/api";
 import {DataView} from "primeng/dataview";
 import {ProductService} from "../../../layout/service/product.service";
+import {BooksService} from "../../../servies/books.service";
 
 @Component({
   selector: 'bookstore-app-frontend-shop',
@@ -18,36 +19,20 @@ export class ShopComponent {
 
   sortField: string = '';
 
-  sourceCities: any[] = [];
 
-  targetCities: any[] = [];
-
-  orderCities: any[] = [];
-
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,
+              private booksService: BooksService) { }
 
   ngOnInit() {
     this.productService.getProducts().then(data => this.products = data);
+    this.booksService.searchBooks('').subscribe(
+        {
+          next: (res)=>{
+            console.log(res);
+          }
+        }
+    )
 
-    this.sourceCities = [
-      { name: 'San Francisco', code: 'SF' },
-      { name: 'London', code: 'LDN' },
-      { name: 'Paris', code: 'PRS' },
-      { name: 'Istanbul', code: 'IST' },
-      { name: 'Berlin', code: 'BRL' },
-      { name: 'Barcelona', code: 'BRC' },
-      { name: 'Rome', code: 'RM' }];
-
-    this.targetCities = [];
-
-    this.orderCities = [
-      { name: 'San Francisco', code: 'SF' },
-      { name: 'London', code: 'LDN' },
-      { name: 'Paris', code: 'PRS' },
-      { name: 'Istanbul', code: 'IST' },
-      { name: 'Berlin', code: 'BRL' },
-      { name: 'Barcelona', code: 'BRC' },
-      { name: 'Rome', code: 'RM' }];
 
     this.sortOptions = [
       { label: 'Price High to Low', value: '!price' },

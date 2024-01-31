@@ -1,4 +1,4 @@
-import { Injectable, effect, signal } from '@angular/core';
+import {Injectable, effect, signal, Renderer2, RendererFactory2} from '@angular/core';
 import { Subject } from 'rxjs';
 
 export interface AppConfig {
@@ -51,7 +51,9 @@ export class LayoutService {
 
     overlayOpen$ = this.overlayOpen.asObservable();
 
-    constructor() {
+    constructor(
+    ) {
+
         effect(() => {
             const config = this.config();
             if (this.updateStyle(config)) {

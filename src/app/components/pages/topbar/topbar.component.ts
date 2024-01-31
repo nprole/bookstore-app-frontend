@@ -16,5 +16,20 @@ export class TopbarComponent {
 
   @ViewChild('topbarmenu') menu!: ElementRef;
 
-  constructor(public layoutService: LayoutService) { }
+  constructor(public layoutService: LayoutService) {
+    this.items = [
+      {
+        label: 'Authentication',
+        items: [
+          {
+            label: 'Register',
+            icon: 'pi pi-fw pi-plus'
+          },
+          {
+            label: 'Login',
+            icon: 'pi pi-fw pi-user-edit'
+          }
+        ]
+      }];
+  }
 }

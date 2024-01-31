@@ -36,6 +36,7 @@ export class LoginPageComponent implements OnDestroy {
     }
 
     submit() {
+        console.log('SUBMITTT LOGIN');
         if (this.loading) {
             return;
         }

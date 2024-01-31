@@ -1,60 +1,62 @@
 <div class="content-wrapper">
-    <div class="content" >
-        <div class="logo-center-wrapper">
-            <div class="logo-img"></div>
+    <div class="content">
+        <div class="grid">
+            <div class="col-12 md:col-6">
+                <div class="card p-fluid">
+                    <div class="logo-center-wrapper">
+                        <div class="logo-img"></div>
+                    </div>
+                    <h4>Register a new account</h4>
+
+                    <form [formGroup]="registerForm" (ngSubmit)="submit()">
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input
+                                    id="email"
+                                    type="email"
+                                    formControlName="email"
+                                    placeholder="Type in your email"
+                                    pInputText
+                            />
+                            <!--                    <div *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)">
+                                                    <small *ngIf="registerForm.get('email')?.hasError('required')" class="p-error">Email should not be
+                                                        empty</small>
+                                                    <small *ngIf="registerForm.get('email')?.hasError('email')" class="p-error">Invalid email</small>
+                                                </div>-->
+                        </div>
+                        <div class="field">
+                            <label for="username">Username</label>
+                            <input
+                                    id="username"
+                                    type="text"
+                                    formControlName="username"
+                                    placeholder="Type in your username"
+                                    pInputText
+                            />
+                        </div>
+                        <div class="field">
+                            <label for="password">Password</label>
+                            <input
+                                    id="password"
+                                    type="password"
+                                    formControlName="password"
+                                    placeholder="Type in your password"
+                                    pPassword
+                            />
+                            <!--                         <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
+                                                         <small *ngIf="registerForm.get('password')?.hasError('required')" class="p-error">Password should not be
+                                                             empty</small>
+                                                         <small *ngIf="registerForm.get('password')?.hasError('minlength')" class="p-error">Password must be
+                                                             longer than or equal to 6 characters</small>
+                                                         <small *ngIf="registerForm.get('password')?.hasError('maxlength')" class="p-error">Password must be
+                                                             shorter than or equal to 60 characters</small>
+                                                     </div>-->
+                        </div>
+                        <p-button label="Register"></p-button>
+                    </form>
+
+                </div>
+            </div>
         </div>
-        <h2 class="mat-card-title">Register</h2>
-        <h3 class="mat-card-title">Register a new account</h3>
-<!--        <form class="text-center" [form]="registerForm" (ngSubmit)="submit()">
-            <div class="p-field">
-                <label for="email">Email</label>
-                <input
-                        id="email"
-                        type="email"
-                        formControlName="email"
-                        placeholder="Type in your email"
-                        pInputText
-                />
-                <div *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)">
-                    <small *ngIf="registerForm.get('email')?.hasError('required')" class="p-error">Email should not be empty</small>
-                    <small *ngIf="registerForm.get('email')?.hasError('email')" class="p-error">Invalid email</small>
-                </div>
-            </div>
-
-            <div class="p-field">
-                <label for="username">Username</label>
-                <input
-                        id="username"
-                        type="text"
-                        formControlName="username"
-                        placeholder="Type in your username"
-                        pInputText
-                />
-            </div>
-
-            <div class="p-field">
-                <label for="password">Password</label>
-                <input
-                        id="password"
-                        type="password"
-                        formControlName="password"
-                        placeholder="Type in your password"
-                        pPassword
-                />
-                <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
-                    <small *ngIf="registerForm.get('password')?.hasError('required')" class="p-error">Password should not be empty</small>
-                    <small *ngIf="registerForm.get('password')?.hasError('minlength')" class="p-error">Password must be longer than or equal to 6 characters</small>
-                    <small *ngIf="registerForm.get('password')?.hasError('maxlength')" class="p-error">Password must be shorter than or equal to 60 characters</small>
-                </div>
-            </div>
-
-            <div class="form-bottom-wrapper">
-                <button [disabled]="registerForm.invalid" type="submit" class="main-button p-button p-component p-button-raised p-button-primary">Register</button>
-            </div>-->
-<!--        </form>-->
-    </div>
-    or
-    <div class="bottom-info">
-        Already have an account? <a routerLink="/login">Login</a>
     </div>
 </div>

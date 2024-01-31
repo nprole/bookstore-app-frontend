@@ -4,8 +4,7 @@ import {RouterModule} from '@angular/router';
 import {AppComponent} from './app.component';
 import {appRoutes} from './app.routes';
 import {InfoPageComponent} from './components/pages/info-page/info-page.component';
-import {AdminPanelComponent} from './components/features/admin-panel/admin-panel.component';
-import {ShopComponent} from './components/features/shop/shop.component';
+import {ShopComponent} from './components/pages/shop/shop.component';
 import {BuildLogComponent} from './components/pages/build-log/build-log.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ErrorDialogInterceptor} from "../core/interceptor/error-dialog.interceptor";
@@ -13,21 +12,8 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthTokenInterceptor} from "./components/features/auth/interceptor/auth-token.interceptor";
 import {AuthService} from "./components/features/auth/service/auth.service";
 import {APP_BASE_HREF, CommonModule} from "@angular/common";
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatButtonToggleModule} from "@angular/material/button-toggle";
-import {MatProgressBarModule} from "@angular/material/progress-bar";
-import {MatSlideToggleModule} from "@angular/material/slide-toggle";
-import {MatIconModule} from "@angular/material/icon";
-import {MatSidenavModule} from "@angular/material/sidenav";
-import {MatInputModule} from "@angular/material/input";
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {MatSliderModule} from "@angular/material/slider";
-import {MatMenuModule} from "@angular/material/menu";
-import {MatCardModule} from "@angular/material/card";
 import {CoreModule} from "../core/core.module";
-import {MatButtonModule} from "@angular/material/button";
 import {HomeComponent} from "./components/pages/home/home.component";
 import {ToolbarModule} from "primeng/toolbar";
 import {SplitButtonModule} from "primeng/splitbutton";
@@ -42,6 +28,10 @@ import {RatingModule} from "primeng/rating";
 import {ProductService} from "./layout/service/product.service";
 import {MenuService} from "./layout/service/app.menu.service";
 import {AppConfigModule} from "./layout/config/config.module";
+import {AppMenuitemComponent} from "./components/pages/menu/app.menuitem.component";
+import {MenuModule} from "primeng/menu";
+import {SharedModule} from "./components/shared/shared.module";
+import {AuthModule} from "./components/features/auth/auth.module";
 
 const initialize = (authService: AuthService) => async () => {
     if (authService.getAccessToken()) {
@@ -56,38 +46,22 @@ const initialize = (authService: AuthService) => async () => {
     declarations: [
         AppComponent,
         InfoPageComponent,
-        AdminPanelComponent,
         ShopComponent,
         BuildLogComponent,
         TopbarComponent,
         HomeComponent,
         AppMenuComponent,
-        SidebarComponent,
+        AppMenuitemComponent,
+        SidebarComponent
     ],
     imports: [
         AppConfigModule,
         BrowserModule,
-        FormsModule,
         ReactiveFormsModule,
         RouterModule.forRoot(appRoutes, {initialNavigation: 'enabledBlocking'}),
         BrowserAnimationsModule,
         CommonModule,
-        MatProgressBarModule,
-        MatSliderModule,
-        MatFormFieldModule,
-        MatProgressSpinnerModule,
-        MatButtonModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatSidenavModule,
-        MatCardModule,
-        MatInputModule,
-        MatSlideToggleModule,
-        MatButtonToggleModule,
         CoreModule,
-        MatMenuModule,
-        MatButtonModule,
-        ReactiveFormsModule,
         FormsModule,
         BrowserModule,
         HttpClientModule,
@@ -97,7 +71,10 @@ const initialize = (authService: AuthService) => async () => {
         PickListModule,
         DataViewModule,
         DropdownModule,
-        RatingModule
+        RatingModule,
+        MenuModule,
+        SharedModule,
+        AuthModule
     ],
     providers: [
         ProductService,
@@ -121,6 +98,10 @@ const initialize = (authService: AuthService) => async () => {
         }
     ],
     bootstrap: [AppComponent],
+    exports: [
+        TopbarComponent,
+        SidebarComponent
+    ]
 })
 export class AppModule {
 }

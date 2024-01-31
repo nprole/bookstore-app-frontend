@@ -21,10 +21,6 @@ html {
   height: 100%;
 }
 
-body {
-  height: 100%;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
 
 .logo {
   font-family: 'KnightWarriorFont', sans-serif;
@@ -42,13 +38,6 @@ body {
   background-image: url('assets/logo.png');
   background-size: contain;
   background-repeat: no-repeat;
-}
-
-.progress-container {
-  position: relative;
-  display: inline-block; /* To keep the container size based on content */
-  width: 64px; /* Set a fixed width for the container */
-  height: 64px; /* Set a fixed height for the container */
 }
 
 .content-wrapper {
@@ -73,14 +62,3 @@ body {
   flex-direction: column;
   max-width: 600px;
 }
-
-.countdown-number {
-  position: absolute;
-  top: 50%; /* Move the top of the text to the middle */
-  left: 50%; /* Move the left of the text to the middle */
-  transform: translate(-50%, -50%); /* Center the text properly */
-  font-size: 1.5rem; /* Set the font size as needed */
-}
-
-html, body { height: 100%; width: 100% }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

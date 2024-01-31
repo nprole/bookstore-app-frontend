@@ -4,6 +4,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import {LayoutService} from "../../../layout/service/app.layout.service";
+import {MenuService} from "../../../layout/service/app.menu.service";
 
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector

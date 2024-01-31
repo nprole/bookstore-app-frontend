@@ -1,6 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {ThemeService} from "../../../../services/theme.service";
 
 export interface ConfirmDialogData {
     title: string;
@@ -19,18 +18,12 @@ export class ConfirmDialogComponent implements OnInit {
 
     constructor(
         @Inject(MAT_DIALOG_DATA) data: ConfirmDialogData,
-        private dialogRef: MatDialogRef<ConfirmDialogComponent>,
-        private themeService: ThemeService
+        private dialogRef: MatDialogRef<ConfirmDialogComponent>
     ) {
-        this.darkTheme = this.themeService.isDarkThemeSubject.getValue();
+        this.darkTheme = false;
         this.title = data?.title || 'Are you sure?';
         this.description =
             data?.description || 'You are not going to be able to undo this action';
-        this.themeService.isDarkThemeSubject.subscribe({
-            next: (isDark) => {
-                this.darkTheme = isDark;
-            }
-        });
     }
 
     ngOnInit(): void {

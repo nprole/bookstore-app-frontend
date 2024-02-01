@@ -1,5 +1,4 @@
 import {Component, OnInit, Renderer2, ViewChild} from '@angular/core';
-import {PrimeNGConfig} from "primeng/api";
 import {filter, Subscription} from "rxjs";
 import {SidebarComponent} from "./components/pages/sidebar/sidebar.component";
 import {TopbarComponent} from "./components/pages/topbar/topbar.component";
@@ -12,9 +11,6 @@ import {NavigationEnd, Router} from "@angular/router";
 })
 export class AppComponent implements OnInit {
 
-    ngOnInit() {
-    }
-
     overlayMenuOpenSubscription: Subscription;
 
     menuOutsideClickListener: any;
@@ -25,9 +21,7 @@ export class AppComponent implements OnInit {
 
     @ViewChild(TopbarComponent) appTopbar!: TopbarComponent;
 
-    constructor(
-        private primengConfig: PrimeNGConfig,
-        public layoutService: LayoutService, public renderer: Renderer2, public router: Router) {
+    constructor(public layoutService: LayoutService, public renderer: Renderer2, public router: Router) {
         this.overlayMenuOpenSubscription = this.layoutService.overlayOpen$.subscribe(() => {
             if (!this.menuOutsideClickListener) {
                 this.menuOutsideClickListener = this.renderer.listen('document', 'click', event => {
@@ -36,17 +30,6 @@ export class AppComponent implements OnInit {
 
                     if (isOutsideClicked) {
                         this.hideMenu();
-                    }
-                });
-            }
-
-            if (!this.profileMenuOutsideClickListener) {
-                this.profileMenuOutsideClickListener = this.renderer.listen('document', 'click', event => {
-                    const isOutsideClicked = !(this.appTopbar.menu.nativeElement.isSameNode(event.target) || this.appTopbar.menu.nativeElement.contains(event.target)
-                        || this.appTopbar.topbarMenuButton.nativeElement.isSameNode(event.target) || this.appTopbar.topbarMenuButton.nativeElement.contains(event.target));
-
-                    if (isOutsideClicked) {
-                        this.hideProfileMenu();
                     }
                 });
             }
@@ -121,5 +104,8 @@ export class AppComponent implements OnInit {
         if (this.menuOutsideClickListener) {
             this.menuOutsideClickListener();
         }
+    }
+
+    ngOnInit(): void {
     }
 }

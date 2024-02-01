@@ -9,7 +9,7 @@ import {ErrorDialogInterceptor} from "../core/interceptor/error-dialog.intercept
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthTokenInterceptor} from "./components/features/auth/interceptor/auth-token.interceptor";
 import {AuthService} from "./components/features/auth/service/auth.service";
-import {APP_BASE_HREF, CommonModule} from "@angular/common";
+import {APP_BASE_HREF, CommonModule, LocationStrategy, PathLocationStrategy} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CoreModule} from "../core/core.module";
 import {HomeComponent} from "./components/pages/home/home.component";
@@ -76,6 +76,7 @@ const initialize = (authService: AuthService) => async () => {
         AuthModule
     ],
     providers: [
+        {provide: LocationStrategy, useClass: PathLocationStrategy},
         ProductService,
         MenuService,
         BooksService,

@@ -20,7 +20,10 @@ export class ShopComponent {
     sortField: string = '';
 
 
-    constructor() {
+    constructor(
+        private productService: ProductService,
+    ) {
+        this.productService.getProducts().then(data => this.products = data);
     }
 
     ngOnInit() {

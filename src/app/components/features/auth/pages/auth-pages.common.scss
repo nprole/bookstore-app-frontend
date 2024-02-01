@@ -2,15 +2,6 @@
   font-size: xx-small;
   font-weight: 600;
 }
-
-.main-button {
-  width: 100%;
-  box-shadow: 0 0.1rem 0.2rem 0.05rem rgba(0, 0, 0, .15);
-  font-weight: 600;
-  font-size: 1rem;
-  font-family: 'Roboto', sans-serif;
-}
-
 .content {
   max-width: 300px;
 }
@@ -21,25 +12,4 @@
 .error-message {
   font-size: xx-small;
   color: red;
-}
-
-mat-form-field {
-  display: block;
-  width: 100%;
-}
-
-.mat-mdc-form-field {
-  display: block !important;
-}
-
-.mr {
-  margin-right: 1rem;
-}
-
-
-
-
-.coming-soon {
-  filter: blur(2px); /* You can adjust the pixel value based on your preference */
-  pointer-events: none;
 }

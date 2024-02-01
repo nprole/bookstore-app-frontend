@@ -5,14 +5,6 @@ import { Injectable } from '@angular/core';
 export class ProductService {
 
     constructor(private http: HttpClient) { }
-
-    getProductsSmall() {
-        return this.http.get<any>('assets/demo/data/products-small.json')
-            .toPromise()
-            .then(res => res.data as any[])
-            .then(data => data);
-    }
-
     getProducts() {
         return this.http.get<any>('assets/demo/data/products.json')
             .toPromise()
@@ -20,17 +12,4 @@ export class ProductService {
             .then(data => data);
     }
 
-    getProductsMixed() {
-        return this.http.get<any>('assets/demo/data/products-mixed.json')
-            .toPromise()
-            .then(res => res.data as any[])
-            .then(data => data);
-    }
-
-    getProductsWithOrdersSmall() {
-        return this.http.get<any>('assets/demo/data/products-orders-small.json')
-            .toPromise()
-            .then(res => res.data as any[])
-            .then(data => data);
-    }
 }

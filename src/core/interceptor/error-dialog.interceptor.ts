@@ -58,13 +58,13 @@ export class ErrorDialogInterceptor implements HttpInterceptor {
   }
 
   handleError(err: HttpError) {
-/*    this.dialog.open<ErrorDialogData>(ErrorDialogComponent, {
+/*/!*    this.dialog.open<ErrorDialogData>(ErrorDialogComponent, {
       data: {
         title: err.error || 'Error',
         message: err.message,
       },
       width: '350px',
-    });*/
+    });*!/
 
 
     this.dialogService.open(ErrorDialogComponent, {
@@ -74,7 +74,7 @@ export class ErrorDialogInterceptor implements HttpInterceptor {
         title: err.error || 'Error',
         message: Array.isArray(err.message) ? err.message : [err.message]
       }
-    });
+    });*/
   }
 
 /*  openOoopsDialog(message: string | string[]) {

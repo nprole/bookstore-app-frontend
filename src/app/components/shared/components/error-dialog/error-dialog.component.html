@@ -1,25 +1,23 @@
-<!--
-<mat-dialog-content class="mat-typography" >
-  <div mat-dialog-title >
-    <div class="logo-center-wrapper">
-      <div class="logo-img"></div>
-    </div>
-    Ooops! Something went wrong!
-  </div>
-  <div mat-dialog-content >
-    <p *ngIf="message.length === 1; else multiple">{{ message[0] }}</p>
-  </div>
-
-  <ng-template #multiple>
-    <ul>
-      <li *ngFor="let msg of message">
-        {{ msg }}
-      </li>
-    </ul>
-  </ng-template>
-</mat-dialog-content>
-&lt;!&ndash;[ngClass]="{'mat-app-background': isDark}"&ndash;&gt;
-<mat-dialog-actions class="d-flex justify-content-center align-items-center w-100" >
-  <button mat-button mat-dialog-close>Close</button>
-</mat-dialog-actions>
--->
+<mat-dialog-container>
+    <mat-dialog-content class="mat-typography">
+        <div mat-dialog-title>
+            <div class="logo-center-wrapper">
+                <div class="logo-img"></div>
+            </div>
+            Ooops! Something went wrong!
+        </div>
+        <div mat-dialog-content>
+            <p *ngIf="message.length === 1; else multiple">{{ message[0] }}</p>
+        </div>
+        <ng-template #multiple>
+            <ul>
+                <li *ngFor="let msg of message">
+                    {{ msg }}
+                </li>
+            </ul>
+        </ng-template>
+    </mat-dialog-content>
+    <mat-dialog-actions class="d-flex justify-content-center align-items-center w-100">
+        <button mat-button mat-dialog-close>Close</button>
+    </mat-dialog-actions>
+</mat-dialog-container>

@@ -11,10 +11,14 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
 import {PasswordModule} from "primeng/password";
 import {ButtonModule} from "primeng/button";
+import {PanelModule} from "primeng/panel";
 
 
 @NgModule({
-    declarations: [RegisterPageComponent, LoginPageComponent],
+    declarations: [
+        RegisterPageComponent,
+        LoginPageComponent
+    ],
     providers: [],
     imports: [
         FormsModule,
@@ -30,9 +34,13 @@ import {ButtonModule} from "primeng/button";
         CardModule,
         InputTextModule,
         PasswordModule,
-        ButtonModule
+        ButtonModule,
+        PanelModule
     ],
-    exports: [RegisterPageComponent, LoginPageComponent],
+    exports: [
+        RegisterPageComponent,
+        LoginPageComponent
+    ],
 })
 export class AuthModule {
 }

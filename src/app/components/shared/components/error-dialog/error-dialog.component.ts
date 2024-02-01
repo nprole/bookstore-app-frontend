@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {Subscription} from "rxjs";
+import {DynamicDialogRef} from "primeng/dynamicdialog";
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 export interface ErrorDialogData {
     title: string;
@@ -13,26 +13,23 @@ export interface ErrorDialogData {
 })
 export class ErrorDialogComponent implements OnInit {
     title: ErrorDialogData['title'];
-    message: any[];
-    isDark: boolean;
-    subs: Subscription[];
-
+    message: any[] = [];
     constructor(
         @Inject(MAT_DIALOG_DATA) data: ErrorDialogData,
     ) {
-        this.subs = [];
-        this.isDark = true;
 
         this.title = data.title || 'Error';
         this.message =
             data.message instanceof Array ? data.message : [data.message || ''];
     }
-
-
     ngOnInit(): void {
+        console.log('ERROR DIALOG DATA');
+/*        this.message =
+            data.message instanceof Array ? data.message : [data.message || ''];*/
     }
 
-    ngOnDestroy(): void {
-        this.subs.forEach(s => s.unsubscribe());
+    closeDialog() {
+      // /  this.ref.close();
     }
+
 }

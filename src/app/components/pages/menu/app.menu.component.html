@@ -3,76 +3,10 @@
          routerLink="/home">
         <div class="logo-img">
         </div>
-        BookVerse
+        BookBrezze
     </div>
     <ng-container *ngFor="let item of model; let i = index;">
         <li app-menuitem *ngIf="!item.separator" [item]="item" [index]="i" [root]="true"></li>
         <li *ngIf="item.separator" class="menu-separator"></li>
     </ng-container>
 </ul>
-
-<!--
-<ul class="layout-menu">
-    <div >
-        <div class="sidenav-content">
-            <div class="logo-wrapper d-flex align-items-center justify-content-center flex-column" href="#"
-                 routerLink="/lobby">
-                <div class="logo-img">
-                </div>
-                BookVerse
-            </div>
-            <div class="sidebar-item">
-                <button class="sidebar-item"
-                        routerLink="/home">
-                    <div>Home</div>
-                </button>
-            </div>
-
-
-            <li  class="menu-separator"></li>
-            <div class="sidebar-item" *ngIf="loggedIn">
-                <button>
-                    <div>Shop</div>
-                </button>
-            </div>
-
-            <div class="sidebar-item" *ngIf="loggedIn">
-                <button
-                        (click)="logout()">
-                    <div>Log out</div>
-                </button>
-            </div>
-            <div class="sidebar-item" *ngIf="loggedIn">
-                <button
-                        (click)="logout()">
-                    <div>Log out</div>
-                </button>
-            </div>
-            <div class="sidebar-item" *ngIf="!loggedIn">
-                <button mat-raised-button color="primary"
-                        (click)="navigate('/login')">
-                    <div>Login</div>
-                </button>
-            </div>
-            <div class="sidebar-item" *ngIf="!loggedIn">
-                &lt;!&ndash; (click)="sidenav.toggle()"&ndash;&gt;
-                <button mat-raised-button color="accent"
-                        (click)="navigate('/register')">
-                    <div>Register</div>
-                </button>
-            </div>
-            <div class="sidebar-item" *ngIf="loggedIn">
-                <button
-                        (click)="navigate('/settings')">
-                    <div>Settings</div>
-                </button>
-            </div>
-            <div class="sidebar-item">
-                <button (click)="navigate('/build-log')">
-                    <div>Build log</div>
-                </button>
-            </div>
-        </div>
-    </div>
-</ul>
--->

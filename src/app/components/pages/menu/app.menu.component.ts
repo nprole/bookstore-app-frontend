@@ -26,27 +26,20 @@ export class AppMenuComponent implements OnInit {
             {
                 label: 'Authentication',
                 items: [
-                    {label: 'Login', icon: 'pi pi-fw pi-home', routerLink: ['/login']},
-                    {label: 'Register', icon: 'pi pi-fw pi-home', routerLink: ['/register']}
+                    {label: 'Login', icon: 'pi pi-fw pi-user', routerLink: ['/login']},
+                    {label: 'Register', icon: 'pi pi-fw pi-user', routerLink: ['/register']}
                 ]
             },
             {
                 label: 'Backoffice',
                 items: [
-                    {label: 'Admin panel', icon: 'pi pi-fw pi-home', routerLink: ['/backoffice']}
+                    {label: 'Admin panel', icon: 'pi pi-fw pi-cog', routerLink: ['/admin-panel']}
                 ]
             },
             {
                 label: 'Shop',
                 items: [
-                    {label: 'Offer', icon: 'pi pi-fw pi-home', routerLink: ['/shop']}
-                ]
-            },
-
-            {
-                label: 'About',
-                items: [
-                    {label: 'Build log', icon: 'pi pi-fw pi-home', routerLink: ['/build-log']}
+                    {label: 'Offer', icon: 'pi pi-fw pi-search', routerLink: ['/shop']}
                 ]
             }
         ];

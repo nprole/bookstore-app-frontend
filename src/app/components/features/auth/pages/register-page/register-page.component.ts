@@ -12,19 +12,22 @@ export class RegisterPageComponent implements OnDestroy {
     registerForm: FormGroup;
     loading = false;
     subs: Subscription[];
-    isDarkTheme: boolean;
 
     constructor(
         private formBuilder: FormBuilder,
         private authService: AuthService,
     ) {
-        this.isDarkTheme = true;
         this.registerForm = this.formBuilder.group({
             email: ['', [Validators.required, Validators.email]],
             username: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]],
             password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(60)]]
         });
+        this.registerForm.get('password')?.valueChanges.subscribe(value => {
+            console.log('Password value changed:', value);
+            console.log('Password in form:', this.registerForm.get('password'));
 
+            this.registerForm.get('password')
+        });
         this.subs = [];
 
     }
@@ -37,8 +40,9 @@ export class RegisterPageComponent implements OnDestroy {
 
     submit() {
         this.loading = true;
-
         const user = this.registerForm.value;
+
+        console.log('SUBMIT register' , user);
         if (this.registerForm.valid) {
             this.authService
                 .register(user)
@@ -50,9 +54,9 @@ export class RegisterPageComponent implements OnDestroy {
                     error: () => {
                         this.loading = false;
 
-                        this.registerForm.patchValue({
+                   /*     this.registerForm.patchValue({
                             password: '',
-                        });
+                        });*/
                     },
                 });
         } else {

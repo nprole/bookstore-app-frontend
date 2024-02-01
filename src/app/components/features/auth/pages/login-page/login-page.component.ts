@@ -36,7 +36,7 @@ export class LoginPageComponent implements OnDestroy {
     }
 
     submit() {
-        console.log('SUBMITTT LOGIN');
+        console.log('SUBMITTT login');
         if (this.loading) {
             return;
         }
@@ -56,9 +56,9 @@ export class LoginPageComponent implements OnDestroy {
                     error: () => {
                         this.loading = false;
 
-                        this.loginForm.patchValue({
+              /*          this.loginForm.patchValue({
                             password: '',
-                        });
+                        });*/
                     },
                 });
         } else {

@@ -15,6 +15,7 @@ import {
 } from '../../app/components/shared/components/error-dialog/error-dialog.component';
 import {AuthService} from "../../app/components/features/auth/service/auth.service";
 import {AuthTokenInterceptor} from "../../app/components/features/auth/interceptor/auth-token.interceptor";
+import {DialogService} from "primeng/dynamicdialog";
 
 export interface HttpError {
   statusCode: number;
@@ -26,7 +27,7 @@ export interface HttpError {
 export class ErrorDialogInterceptor implements HttpInterceptor {
   static skipHeader = 'errorDialog';
 
-  constructor(private dialog: MatDialog, private authService: AuthService) {}
+  constructor(private dialogService: DialogService, private authService: AuthService) {}
 
   intercept(
     request: HttpRequest<unknown>,
@@ -57,12 +58,32 @@ export class ErrorDialogInterceptor implements HttpInterceptor {
   }
 
   handleError(err: HttpError) {
-    this.dialog.open<ErrorDialogData>(ErrorDialogComponent, {
+/*    this.dialog.open<ErrorDialogData>(ErrorDialogComponent, {
       data: {
         title: err.error || 'Error',
         message: err.message,
       },
       width: '350px',
+    });*/
+
+
+    this.dialogService.open(ErrorDialogComponent, {
+      header: 'Ooops! Something went wrong!',
+      contentStyle: { 'max-width': '500px' },
+      data: {
+        title: err.error || 'Error',
+        message: Array.isArray(err.message) ? err.message : [err.message]
+      }
     });
   }
+
+/*  openOoopsDialog(message: string | string[]) {
+    const ref = this.dialogService.open(DialogComponent, {
+      header: 'Ooops! Something went wrong!',
+      contentStyle: { 'max-width': '500px' },
+      data: {
+        message: Array.isArray(message) ? message : [message]
+      }
+    });
+  }*/
 }

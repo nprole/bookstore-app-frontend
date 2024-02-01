@@ -3,9 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {AppComponent} from './app.component';
 import {appRoutes} from './app.routes';
-import {InfoPageComponent} from './components/pages/info-page/info-page.component';
 import {ShopComponent} from './components/pages/shop/shop.component';
-import {BuildLogComponent} from './components/pages/build-log/build-log.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ErrorDialogInterceptor} from "../core/interceptor/error-dialog.interceptor";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
@@ -32,6 +30,8 @@ import {AppMenuitemComponent} from "./components/pages/menu/app.menuitem.compone
 import {MenuModule} from "primeng/menu";
 import {SharedModule} from "./components/shared/shared.module";
 import {AuthModule} from "./components/features/auth/auth.module";
+import {BooksService} from "./servies/books.service";
+import {DialogModule} from "primeng/dialog";
 
 const initialize = (authService: AuthService) => async () => {
     if (authService.getAccessToken()) {
@@ -45,9 +45,7 @@ const initialize = (authService: AuthService) => async () => {
 @NgModule({
     declarations: [
         AppComponent,
-        InfoPageComponent,
         ShopComponent,
-        BuildLogComponent,
         TopbarComponent,
         HomeComponent,
         AppMenuComponent,
@@ -71,6 +69,7 @@ const initialize = (authService: AuthService) => async () => {
         PickListModule,
         DataViewModule,
         DropdownModule,
+        DialogModule,
         RatingModule,
         MenuModule,
         SharedModule,
@@ -79,6 +78,7 @@ const initialize = (authService: AuthService) => async () => {
     providers: [
         ProductService,
         MenuService,
+        BooksService,
         {provide: APP_BASE_HREF, useValue: '/'},
         {
             provide: APP_INITIALIZER,

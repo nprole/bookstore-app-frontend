@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {BehaviorSubject} from 'rxjs';
-import {mergeMap, take} from 'rxjs/operators';
+import {mergeMap} from 'rxjs/operators';
 import {AuthTokenInterceptor} from '../interceptor/auth-token.interceptor';
 import {environment} from "../../../../../environments/environment";
 import {ErrorDialogInterceptor} from "../../../../../core/interceptor/error-dialog.interceptor";
@@ -44,6 +44,7 @@ export class AuthService {
     }
 
     login(user: Partial<any>) {
+        console.log('LOGIN ENDPOINT');
         return this.http
             .post<TokenResponse>(`${api}/auth/login`, user)
             .pipe(mergeMap(response => this.setTokens(response),
@@ -52,6 +53,7 @@ export class AuthService {
 
 
     register(user: Partial<any>) {
+        console.log('REgister endpoint call');
         return this.http
             .post<TokenResponse>(`${api}/auth/register`, user)
             .pipe(mergeMap(response => this.setTokens(response)));
